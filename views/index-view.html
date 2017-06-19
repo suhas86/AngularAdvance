@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-xs-12 col-md-3"><div class="blue-circle"></div>Name of the Book</div>
+    <div class="col-xs-12 col-md-3"><div class="green-circle"></div>Characters</div>
+    <div class="col-xs-12 col-md-3"><div class="red-circle"></div>House</div>
+</div>
+<br>
+<div class="clear-fix"></div>
+<div class="row" ng-init="mainList.loadAllBooks()">
+    <div class="col-lg-12 
+            col-md-12 ">
+            <form class="form-inline">
+            <input ng-model="query" type="text"
+            placeholder="Filter by" autofocus>
+            </form>
+            <br>
+        <div ng-repeat="item in mainList.books | filter:query
+        |orderBy:'name'">
+        <book-list item="item" house="mainList.houses[$index]"
+        char="mainList.chars[$index]"></book-list>
+      </div>
+            
+    </div>
+</div>
